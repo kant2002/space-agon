@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Api.CommonProtos" Version="2.6.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos/protoc-gen-swagger/options/annotations.proto" GrpcServices="None" AdditionalImportDirs="./Protos/" />
+    <Protobuf Include="Protos/protoc-gen-swagger/options/openapiv2.proto" GrpcServices="None" AdditionalImportDirs="./Protos/" />
+    <Protobuf Include="Protos/api/messages.proto" GrpcServices="None" AdditionalImportDirs="./Protos/" />
+    <Protobuf Include="Protos/api/query.proto" GrpcServices="Client" AdditionalImportDirs="./Protos/" />
+    <Protobuf Include="Protos/api/matchfunction.proto" GrpcServices="Server" AdditionalImportDirs="./Protos/" />
+  </ItemGroup>
+
+</Project>
