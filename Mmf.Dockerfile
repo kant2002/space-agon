@@ -3,10 +3,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["MatchFunction/MatchFunction.csproj", "MatchFunction/"]
-RUN dotnet restore "MatchFunction/MatchFunction.csproj"
+COPY ["mmf/MatchFunction.csproj", "mmf/"]
+RUN dotnet restore "mmf/MatchFunction.csproj"
 COPY . .
-WORKDIR "/src/MatchFunction"
+WORKDIR "/src/mmf"
 RUN dotnet build "MatchFunction.csproj" -c Release -o /app/build
 
 FROM build AS publish
